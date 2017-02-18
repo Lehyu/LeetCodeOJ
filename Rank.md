@@ -4,3 +4,6 @@
 
 ## DFA
 1. 65 Valid Number(S)
+
+##  code simplfied
+2. 3.
