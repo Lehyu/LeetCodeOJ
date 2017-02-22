@@ -5,7 +5,8 @@
 ## DFA
 1. 65 Valid Number(S)
 
-## hard to understand
-22
+## important
+22.30. 31(next permutation)
 ##  code simplfied
 2. 3. 
+
