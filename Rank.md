@@ -10,3 +10,5 @@
 ##  code simplfied
 2. 3. 
 
+## try to do it again
+37(sudoku),39
