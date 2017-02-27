@@ -16,6 +16,20 @@ index i:max, j in [i+1,..,i+max] w[j] = min(w[i]+1, w[j])
 */
 class Solution {
 public:
+  //BFS
+  int jump(vector<int> &nums){
+    if(nums.size() < 2) return 0;
+    int i = 0, _max = 0, _next = 0, level = 0;
+    while(_max-i+1 > 0){
+      level++;
+      for(; i < _max; i++){
+	_next = max(_next, nums[i]+i);
+	if(_next>=nums.size()-1) return level;
+      }
+      _max = _next;
+    }
+    return 0;
+  }
   int jump(vector<int>& nums) {
     int len = nums.size();
     vector<int> c(len, len+1);
