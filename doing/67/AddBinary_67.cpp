@@ -3,6 +3,22 @@
 using namespace std;
 class Solution{
 public:
+  string addBinary(string a, string b){
+    if(a.size() < b.size()) return addBinary(b, a);
+    int i = a.size()-1, j = b.size()-1, bit = 0;
+    for(; j >= 0; i--,j--){
+      bit += (a[i]-'0')+(b[j]-'0');
+      a[i] = to_string(bit%2);
+      bit /= 2;
+    }
+    for(; i >= 0; i--){
+      bit += (a[i]-'0');
+      a[i] = to_string(bit%2);
+      bit /= 2;
+    }
+
+    return bit==1?to_string(1)+a:a;
+  }
   //LeetCode 67. Add Binary
   string addBinary(string a, string b){
     int m = a.size();
