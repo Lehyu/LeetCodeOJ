@@ -17,3 +17,6 @@
 
 ##BFS
 45(jump Game II)
+
+## Bit manipulation
+78(subsets)
