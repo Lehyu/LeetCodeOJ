@@ -1,0 +1,48 @@
+/*
+  Given a binary tree, determine if it is height-balanced.
+
+  For this problem, a height-balanced binary tree is defined as a binary tree in which the depth of the two subtrees of every node never differ by more than 1.
+*/
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+
+/*
+  depth-first search?
+*/
+class Solution {
+public:
+  bool isBalanced(TreeNode* root) {
+    if(!root) return true;
+    int diff = abs(depth(root->left)-depth(root->right));
+    if(diff > 1) return false;
+    return isBalanced(root->left) && isBalanced(root->right);//12ms
+    return abs(depth(root->left)-depth(root->right)) <=1 &&isBalanced(root->left) && isBalanced(root->right);// 16ms
+  }
+
+  int depth(TreeNode* root){
+    if(!root) return 0;
+    return max(depth(root->left), depth(root->right))+1;
+  }
+
+  int dfsHeight (TreeNode *root) {
+    if (root == NULL) return 0;
+        
+    int leftHeight = dfsHeight (root -> left);
+    if (leftHeight == -1) return -1;
+    int rightHeight = dfsHeight (root -> right);
+    if (rightHeight == -1) return -1;
+        
+    if (abs(leftHeight - rightHeight) > 1)  return -1;
+    return max (leftHeight, rightHeight) + 1;
+  }
+  bool isBalanced(TreeNode *root) {
+    return dfsHeight (root) != -1;
+  }
+};
